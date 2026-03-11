@@ -4,7 +4,8 @@
 
 // type node pointer* (from struct) returns the created pointer
 node* createNode(int data) {
-    node* newNode = (node*)malloc(sizeof(node));
+
+    node* newNode = (node*)malloc(sizeof(node)); // newNode is a pointer on stack pointing to a space in heap that malloc allocated
     newNode->info = data;
     newNode->nodePoint = NULL;
 
@@ -18,6 +19,7 @@ void insertNodeAfter (node* curNodePtr, node* nextPtr) {
     tempVal = curNodePtr->nodePoint; // null intially
     curNodePtr->nodePoint = nextPtr; // update current nodePtr with next one
     nextPtr->nodePoint = tempVal; // make next nodePtr null 
+   
 }
 
 
