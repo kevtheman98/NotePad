@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "linkList.h"
+
+// type node pointer* (from struct) returns the created pointer
+node* createNode(int data) {
+    node* newNode = (node*)malloc(sizeof(node));
+    newNode->info = data;
+    newNode->nodePoint = NULL;
+
+    return newNode;
+}
+
+// 
+void insertNodeAfter (node* curNodePtr, node* nextPtr) {
+    node* tempVal = NULL;
+
+    tempVal = curNodePtr->nodePoint; // null intially
+    curNodePtr->nodePoint = nextPtr; // update current nodePtr with next one
+    nextPtr->nodePoint = tempVal; // make next nodePtr null 
+}
+
+
+
+
+
