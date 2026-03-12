@@ -8,43 +8,33 @@
 int main() {
     int userLen;
     int headerData;
-    node* lastElement = NULL;
 
     printf("Length of list: \n");
     scanf("%d", &userLen);
 
     printf("Enter data for first element: \n");
-    scanf("d", &headerData);;
+    scanf("%d", &headerData);
     node* header = createNode(headerData);
+    node* tail = header;
 
 
-    for (int i = 0; i < userLen; i++) {
-        char currentElem[100];
+    for (int i = 0; i < userLen - 1; i++) {
+        char newElemName[100];
         int elementData;
 
-        sprintf(currentElem, "line", i);
-        printf("%s\n", currentElem);
-
         printf("Enter data for element: \n");
-        scanf("d", &elementData);
+        scanf("%d", &elementData);
 
-        node* currentElem = createNode(elementData);
-        if (i == 0) {
-            insertNodeAfter(header, currentElem);
-            
-        } else {
-            insertNodeAfter(currentElem, lastElement);
-        }
+        node* newElem = createNode(elementData);
 
-        lastElement = currentElem;
+        insertNodeAfter(tail, newElem);
+
+        //Checking if works
+        printf("Pointing: %p\n", (void*)tail->nodePoint);
+        printf("Pointer: %p\n", (void*)newElem);
         
-
-        
-    }
+        tail = newElem;
     
-
-    
-
-
+    }    
 
 }
