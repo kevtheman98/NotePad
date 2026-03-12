@@ -22,6 +22,22 @@ void insertNodeAfter (node* curNodePtr, node* nextPtr) {
    
 }
 
+void transverseList(node* header) {
+    node* currentElement = header;
+    while(1) {
+        
+        printf("Element data: %d\n", currentElement->info);
+        
+
+
+        if(currentElement->nodePoint == NULL) {
+            break;
+        }
+        currentElement = currentElement->nodePoint;
+
+    }
+}
+
 
 
 

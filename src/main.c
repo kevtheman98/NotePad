@@ -35,6 +35,7 @@ int main() {
         
         tail = newElem;
     
-    }    
+    }
+    transverseList(header);
 
 }
