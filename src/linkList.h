@@ -11,5 +11,6 @@ typedef struct _linkedList {
 node* createNode(int data);
 void insertNodeAfter (node* curNodePtr, node* nextPtr);
 void transverseList(node* header);
+void freeList(node* header);
 
 #endif

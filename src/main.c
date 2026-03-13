@@ -19,7 +19,6 @@ int main() {
 
 
     for (int i = 0; i < userLen - 1; i++) {
-        char newElemName[100];
         int elementData;
 
         printf("Enter data for element: \n");
@@ -36,6 +35,7 @@ int main() {
         tail = newElem;
     
     }
-    transverseList(header); //FIX-ME free memory for each node 
+    transverseList(header); 
+    freeList(header);
 
 }

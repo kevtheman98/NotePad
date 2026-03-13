@@ -25,14 +25,28 @@ void insertNodeAfter (node* curNodePtr, node* nextPtr) {
 void transverseList(node* header) {
     int count = 1;
     node* currentElement = header;
-    while(1) {
+    while(currentElement != NULL) {
         
         printf("Element %d data: %d\n", count, currentElement->info);
         
-        if(currentElement->nodePoint == NULL) {
-            break;
-        }
         currentElement = currentElement->nodePoint;
+
+        count++;
+
+    }
+}
+
+void freeList(node* header) {
+    int count = 1;
+    node* currentElement = header;
+    node* nextElement = NULL;
+    while(currentElement != NULL) {
+        
+
+        nextElement = currentElement->nodePoint;
+        printf("Freed element %d\n", count);
+        free(currentElement);
+        currentElement = nextElement;
 
         count++;
 
