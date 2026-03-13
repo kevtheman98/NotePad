@@ -23,17 +23,18 @@ void insertNodeAfter (node* curNodePtr, node* nextPtr) {
 }
 
 void transverseList(node* header) {
+    int count = 1;
     node* currentElement = header;
     while(1) {
         
-        printf("Element data: %d\n", currentElement->info);
+        printf("Element %d data: %d\n", count, currentElement->info);
         
-
-
         if(currentElement->nodePoint == NULL) {
             break;
         }
         currentElement = currentElement->nodePoint;
+
+        count++;
 
     }
 }

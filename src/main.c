@@ -36,6 +36,6 @@ int main() {
         tail = newElem;
     
     }
-    transverseList(header);
+    transverseList(header); //FIX-ME free memory for each node 
 
 }
