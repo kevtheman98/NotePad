@@ -39,18 +39,62 @@ void transverseList(node* header) {
 void freeList(node* header) {
     int count = 1;
     node* currentElement = header;
-    node* nextElement = NULL;
+    node* targetElement = NULL;
     while(currentElement != NULL) {
         
 
-        nextElement = currentElement->nodePoint;
+        targetElement = currentElement->nodePoint;
         printf("Freed element %d\n", count);
         free(currentElement);
-        currentElement = nextElement;
+        currentElement = targetElement;
 
         count++;
 
     }
+}
+
+void deleteElement(int userDelInfo, node** header) // double pointer in param for updating header if header deleted
+{
+    
+
+    // if list is empty
+    if(*header == NULL) return;
+
+    node* currentElement = *header;
+    node* targetElement = NULL;
+
+
+    // if header is deleted
+    if(currentElement->info == userDelInfo) {
+        *header = currentElement->nodePoint;
+        free(currentElement);
+        return;
+    }
+
+    // if inbetween deletion or end deletion
+    while(currentElement != NULL) {
+
+        targetElement = currentElement->nodePoint; // target element is next element
+
+        if(targetElement == NULL) {
+            break;
+        }
+        
+        if (targetElement->info == userDelInfo) {
+
+            currentElement->nodePoint = targetElement->nodePoint; //changing pointer of prev element to pointer of deleted element
+
+            free(targetElement);
+            break;
+        }
+
+        currentElement = targetElement;
+
+        
+    }
+
+    
+    
 }
 
 
